@@ -41,7 +41,6 @@ body::after{
 
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 
-/* NAV */
 nav{
   position:fixed;top:0;left:0;right:0;z-index:100;
   padding:14px 0;backdrop-filter:blur(24px) saturate(180%);
@@ -71,7 +70,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
 }
 .btn-nav:hover{background:rgba(255,255,255,0.14);transform:translateY(-1px)}
 
-/* LANGUAGE SWITCHER */
 .lang-switch{
   display:flex;align-items:center;gap:2px;padding:3px;
   background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);
@@ -95,7 +93,6 @@ nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px
   .lang-switch button{padding:5px 9px;font-size:11px}
 }
 
-/* HERO */
 .hero{padding:160px 0 100px;text-align:center;position:relative}
 .badge{
   display:inline-flex;align-items:center;gap:8px;
@@ -145,7 +142,6 @@ h1{
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 
-/* Phone mockup */
 .hero-mock{
   margin-top:80px;display:flex;justify-content:center;
   animation:fadeUp 1s ease .4s both;
@@ -207,7 +203,6 @@ h1{
 .ph-send svg{width:12px;height:12px;stroke-width:2.5}
 @media(max-width:520px){.phone{width:260px;height:520px}}
 
-/* SECTIONS */
 section{padding:100px 0;position:relative}
 .section-label{
   display:inline-block;font-size:12px;font-weight:600;color:#a8a8ad;
@@ -223,7 +218,6 @@ h2{
 .section-head{text-align:center;margin-bottom:70px}
 .section-head .section-desc{margin-left:auto;margin-right:auto}
 
-/* FEATURES */
 .features{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:20px;
@@ -252,7 +246,6 @@ h2{
 .feat h3{font-size:18px;font-weight:600;margin-bottom:8px;letter-spacing:-0.02em}
 .feat p{font-size:14px;color:#a8a8ad;line-height:1.55}
 
-/* SHOWCASE */
 .showcase{
   display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
 }
@@ -294,7 +287,6 @@ h2{
 .sh-line{height:8px;border-radius:4px;background:rgba(255,255,255,0.1)}
 .sh-line.short{width:60%}
 
-/* STATS */
 .stats{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
   gap:20px;padding:48px 32px;border-radius:28px;
@@ -310,7 +302,6 @@ h2{
 }
 .stat-label{font-size:13px;color:#a8a8ad}
 
-/* CTA */
 .cta{
   text-align:center;padding:80px 40px;border-radius:32px;
   background:linear-gradient(160deg,rgba(91,111,255,0.15),rgba(168,85,247,0.08));
@@ -327,7 +318,6 @@ h2{
 .cta p{color:#a8a8ad;font-size:17px;max-width:500px;margin:0 auto 36px}
 .cta .hero-btns{justify-content:center}
 
-/* FOOTER */
 footer{
   padding:48px 0 40px;border-top:1px solid rgba(255,255,255,0.06);
   margin-top:80px;text-align:center;color:#5a5a5f;font-size:13px;
@@ -546,7 +536,7 @@ footer .wrap{display:flex;flex-direction:column;gap:14px;align-items:center}
         <h2 data-i18n="cta_title">Скачать Пико</h2>
         <p data-i18n="cta_desc">Установочный файл для Android. Бесплатно, без рекламы.</p>
         <div class="hero-btns">
-          <a href="#" class="btn btn-primary" id="downloadApk">
+          <a href="https://github.com/nikita133401-ai/Piko/releases/latest/download/Piko.apk" class="btn btn-primary" id="downloadApk" download="Piko.apk">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
             <span data-i18n="btn_apk">Скачать APK</span>
           </a>
@@ -573,7 +563,6 @@ footer .wrap{display:flex;flex-direction:column;gap:14px;align-items:center}
 </footer>
 
 <script>
-/* ===== TRANSLATIONS ===== */
 const I18N = {
   ru: {
     brand: "Пико",
@@ -681,7 +670,6 @@ const I18N = {
   }
 };
 
-/* ===== LANGUAGE ===== */
 function setLang(lang) {
   const dict = I18N[lang];
   if (!dict) return;
@@ -708,16 +696,11 @@ const savedLang = localStorage.getItem('piko_lang');
 const browserLang = (navigator.language || 'ru').toLowerCase().startsWith('ru') ? 'ru' : 'en';
 setLang(savedLang || browserLang);
 
-/* ===== NAV EFFECT ===== */
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 20);
 });
 
-/* ===== LINK PLACEHOLDER ===== */
-document.getElementById('downloadApk').href = 'https://github.com/nikita133401-ai/Piko/releases/latest/download/Piko.apk'; // ← ссылка на APK
-
-/* ===== SMOOTH SCROLL ===== */
 document.querySelectorAll('a[href^="#"]').forEach(a => {
   a.addEventListener('click', e => {
     const t = document.querySelector(a.getAttribute('href'));
@@ -725,7 +708,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* ===== FADE-IN ON SCROLL ===== */
 const obs = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -742,4 +724,4 @@ document.querySelectorAll('.feat, .stat, .showcase-text, .showcase-visual, .cta'
 });
 </script>
 </body>
-</html>
+  </html>
